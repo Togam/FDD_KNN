@@ -13,7 +13,6 @@ public class CsvFile implements CsvFileInterface {
 
 	public CsvFile(File file) throws IOException {
 		this.file = file;
-		// Init
 		init();
 	}
 

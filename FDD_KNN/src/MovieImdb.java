@@ -11,6 +11,7 @@ public class MovieImdb {
 	private int castFbLikes;
 	private int movieFbLikes;
 	private String imdbDiscretise;
+	private int[] tab;
 
 	public MovieImdb() {
 	}
@@ -136,5 +137,19 @@ public class MovieImdb {
 	 */
 	public void setImdbDiscretise(final String imdbDiscretise) {
 		this.imdbDiscretise = imdbDiscretise;
+	}
+
+	/**
+	 * @return
+	 */
+	public int[] getTab() {
+		return tab;
+	}
+
+	/**
+	 * @param tab
+	 */
+	public void setTab(final int[] tab) {
+		this.tab = tab;
 	}
 }

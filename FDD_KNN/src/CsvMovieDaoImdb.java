@@ -67,6 +67,11 @@ public class CsvMovieDaoImdb implements MovieDaoInterface {
 		movie.setMovieFbLikes(Integer.parseInt(tab[5]));
 		movie.setImdbDiscretise(tab[6]);
 
+		int[] tabfinal = { movie.getDuration(), movie.getDirectorFbLikes(),
+				movie.getActor1FbLikes(), movie.getGross(),
+				movie.getCastFbLikes(), movie.getMovieFbLikes() };
+		movie.setTab(tabfinal);
+
 		return movie;
 	}
 
