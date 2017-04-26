@@ -1,7 +1,12 @@
 import java.util.*;
 
+/**
+ * @author six lalande descamps
+ *
+ */
 class KNN
 {
+	// TODO remplacer les valeurs en dures par des lectures de fichiers
 	// the data
 	static double[][] instances = {
 		{0.35,0.91,0.86,0.42},
@@ -129,6 +134,7 @@ class KNN
 		//list to save distance result
 		List<Result> resultList = new ArrayList<Result>();
 		// add city data to cityList       
+		// TODO remplir avec les valeurs du fichier lu 
 		cityList.add(new City(instances[0],"London"));
 		cityList.add(new City(instances[1],"Leeds"));
 		cityList.add(new City(instances[2],"Liverpool"));
