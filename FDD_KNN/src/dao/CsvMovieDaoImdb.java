@@ -1,7 +1,13 @@
+package dao;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import csv_access.CsvFile;
+
+import model.MovieImdb;
 
 /**
  * @author six descamps lalande

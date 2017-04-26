@@ -1,6 +1,11 @@
+package main;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+
+import dao.CsvMovieDaoImdb;
+
+import model.MovieImdb;
 
 /**
  * @author six lalande descamps
@@ -140,10 +145,9 @@ class KNNImdbRegression {
 			}
 			double distance = Math.sqrt(dist);
 			resultList.add(new Result(distance, movie.getImdbDiscretise()));
-			// System.out.println(distance);
+			System.out.println(distance);
 		}
 
-		// System.out.println(resultList);
 		Collections.sort(resultList, new DistanceComparator());
 		String[] ss = new String[k];
 		for (int x = 0; x < k; x++) {
