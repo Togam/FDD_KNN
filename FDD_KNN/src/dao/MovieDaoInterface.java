@@ -1,7 +1,7 @@
 package dao;
 import java.util.List;
 
-import model.MovieImdb;
+import model.Movie;
 
 /**
  * @author six descamps lalande
@@ -9,5 +9,5 @@ import model.MovieImdb;
  */
 public interface MovieDaoInterface {
 
-	List<MovieImdb> findAllMovies();
+	List<Movie> findAllMovies();
 }

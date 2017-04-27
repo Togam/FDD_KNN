@@ -1,23 +1,19 @@
 package main;
+
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
+
+import dao.CsvMovieDaoImdb;
+import dao.CsvMovieDaoRentab;
 
 import model.Movie;
-import dao.CsvMovieDaoImdb;
 
 /**
  * @author six lalande descamps
  * 
  */
-class KNNImdbRegression {
+class KNNRentabRegression {
 
 	/**
 	 * Returns the majority value in an array of strings majority value is the
@@ -128,21 +124,22 @@ class KNNImdbRegression {
 		int k = 3;// number of neighbours
 
 		// list to save city data
-		List<Movie> movieImdbList = new ArrayList<Movie>();
+		List<Movie> movieList = new ArrayList<Movie>();
 
 		// list to save distance result
 		List<Result> resultList = new ArrayList<Result>();
 
 		// add city data to cityList
-		CsvMovieDaoImdb daoImdb = new CsvMovieDaoImdb(new File(
-				"/home/m1miage/six/Documents/FDD/projet/predictionIMDB.csv"));
-		movieImdbList = daoImdb.findAllMovies();
+		CsvMovieDaoRentab daoRentab = new CsvMovieDaoRentab(
+				new File(
+						"/home/m1miage/six/Documents/FDD/projet/predictionRentabilite.csv"));
+		movieList = daoRentab.findAllMovies();
 
 		// data about unknown movie
-		int[] query = { 132, 475, 640, 1873 };
+		long[] query = { 132, 475, 640, 1873, 1, 263700000 };
 
 		// find distances
-		for (Movie movie : movieImdbList) {
+		for (Movie movie : movieList) {
 			double dist = 0.0;
 			long[] attributes = movie.getTab();
 			for (int j = 0; j < movie.getTab().length; j++) {
@@ -150,7 +147,7 @@ class KNNImdbRegression {
 				// System.out.print(attributes[j]+" ");
 			}
 			double distance = Math.sqrt(dist);
-			resultList.add(new Result(distance, movie.getImdbDiscretise()));
+			resultList.add(new Result(distance, movie.getRatioRentabDisc()));
 			System.out.println(distance);
 		}
 
