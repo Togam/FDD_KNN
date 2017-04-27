@@ -2,8 +2,11 @@ package dao;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+
+import service.ParseLigne;
 
 import model.Movie;
 import csv_access.CsvFile;
@@ -12,7 +15,7 @@ import csv_access.CsvFile;
  * @author six descamps lalande
  * 
  */
-public class CsvMovieDaoImdb implements MovieDaoInterface {
+public class CsvMovieDaoRentabClassif implements MovieDaoInterface {
 
 	private File file;
 	private CsvFile csvFile;
@@ -20,7 +23,7 @@ public class CsvMovieDaoImdb implements MovieDaoInterface {
 	/**
 	 * Constructeur
 	 */
-	private CsvMovieDaoImdb() {
+	private CsvMovieDaoRentabClassif() {
 		super();
 	}
 
@@ -28,7 +31,7 @@ public class CsvMovieDaoImdb implements MovieDaoInterface {
 	 * @param file
 	 * @throws IOException
 	 */
-	public CsvMovieDaoImdb(File file) throws IOException {
+	public CsvMovieDaoRentabClassif(File file) throws IOException {
 		this();
 		this.file = file;
 		this.csvFile = new CsvFile(file);
@@ -40,18 +43,18 @@ public class CsvMovieDaoImdb implements MovieDaoInterface {
 	 * @see MovieDaoInterface#findAllMovies()
 	 */
 	public List<Movie> findAllMovies() {
-		List<Movie> movieImdbs = new ArrayList<Movie>();
+		List<Movie> movies = new ArrayList<Movie>();
 
 		final List<String[]> data = csvFile.getData();
 		final List<String[]> dataSansEntete = data; // juste data
 		dataSansEntete.remove(0);
 
 		for (String[] oneData : dataSansEntete) {
-			Movie movie = tabToMovieImdbs(oneData);
-			movieImdbs.add(movie);
+			Movie movie = tabToMovieRentab(oneData);
+			movies.add(movie);
 		}
 
-		return movieImdbs;
+		return movies;
 	}
 
 	/**
@@ -61,18 +64,13 @@ public class CsvMovieDaoImdb implements MovieDaoInterface {
 	 * @param tab
 	 * @return movie
 	 */
-	private Movie tabToMovieImdbs(String[] tab) {
+	private Movie tabToMovieRentab(String[] tab) {
 		Movie movie = new Movie();
 
-		movie.setDuration(Long.parseLong(tab[0]));
-		movie.setDirectorFbLikes(Long.parseLong(tab[1]));
-		movie.setActor1FbLikes(Long.parseLong(tab[2]));
-		movie.setCastFbLikes(Long.parseLong(tab[3]));
-		movie.setImdbDiscretise(tab[4]);
+		long[] tabparsee = ParseLigne.parseLigneRentab(tab);
 
-		long[] tabfinal = { movie.getDuration(), movie.getDirectorFbLikes(),
-				movie.getActor1FbLikes(), movie.getCastFbLikes() };
-		movie.setTab(tabfinal);
+		movie.setRatioRentabDisc(tab[6]);
+		movie.setTab(tabparsee);
 
 		return movie;
 	}

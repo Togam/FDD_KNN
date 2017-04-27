@@ -13,7 +13,7 @@ import csv_access.CsvFile;
  * @author six descamps lalande
  * 
  */
-public class CsvMovieDaoRentab implements MovieDaoInterface {
+public class CsvMovieDaoRentabReg implements MovieDaoInterface {
 
 	private File file;
 	private CsvFile csvFile;
@@ -21,7 +21,7 @@ public class CsvMovieDaoRentab implements MovieDaoInterface {
 	/**
 	 * Constructeur
 	 */
-	private CsvMovieDaoRentab() {
+	private CsvMovieDaoRentabReg() {
 		super();
 	}
 
@@ -29,7 +29,7 @@ public class CsvMovieDaoRentab implements MovieDaoInterface {
 	 * @param file
 	 * @throws IOException
 	 */
-	public CsvMovieDaoRentab(File file) throws IOException {
+	public CsvMovieDaoRentabReg(File file) throws IOException {
 		this();
 		this.file = file;
 		this.csvFile = new CsvFile(file);

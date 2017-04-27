@@ -110,5 +110,5 @@ public class KNNalgo {
 		}
 		return sum / m.length;
 	}
-
+	
 }

@@ -14,6 +14,11 @@ public class Movie {
 	private long budget;
 	private long langage; // 1 si c'est anglais, 0 si c'est autre
 	private String ratioRentabDisc;
+	private String durationDisc;
+	private String DirFbLikesDisc;
+	private String actor1FbLikesDisc;
+	private String castFbLikesDisc;
+	private String budgetDisc;
 	private long[] tab;
 
 	public Movie() {
@@ -144,5 +149,76 @@ public class Movie {
 	 */
 	public void setLangage(final long langage) {
 		this.langage = langage;
+	}
+
+	/**
+	 * @return the durationDisc
+	 */
+	public String getDurationDisc() {
+		return durationDisc;
+	}
+
+	/**
+	 * @param durationDisc the durationDisc to set
+	 */
+	public void setDurationDisc(String durationDisc) {
+		this.durationDisc = durationDisc;
+	}
+
+	/**
+	 * @return the dirFbLikesDisc
+	 */
+	public String getDirFbLikesDisc() {
+		return DirFbLikesDisc;
+	}
+
+	/**
+	 * @param dirFbLikesDisc the dirFbLikesDisc to set
+	 */
+	public void setDirFbLikesDisc(String dirFbLikesDisc) {
+		DirFbLikesDisc = dirFbLikesDisc;
+	}
+
+	/**
+	 * @return the actor1FbLikesDisc
+	 */
+	public String getActor1FbLikesDisc() {
+		return actor1FbLikesDisc;
+	}
+
+	/**
+	 * @param actor1FbLikesDisc the actor1FbLikesDisc to set
+	 */
+	public void setActor1FbLikesDisc(String actor1FbLikesDisc) {
+		this.actor1FbLikesDisc = actor1FbLikesDisc;
+	}
+
+	/**
+	 * @return the castFbLikesDisc
+	 */
+	public String getCastFbLikesDisc() {
+		return castFbLikesDisc;
+	}
+
+	/**
+	 * @param castFbLikesDisc the castFbLikesDisc to set
+	 */
+	public void setCastFbLikesDisc(String castFbLikesDisc) {
+		this.castFbLikesDisc = castFbLikesDisc;
+	}
+
+	/**
+	 * @return the budgetDisc
+	 */
+	public String getBudgetDisc() {
+		return budgetDisc;
+	}
+
+	/**
+	 * @param budgetDisc
+	 *            the budgetDisc to set
+	 */
+	public void setBudgetDisc(String budgetDisc) {
+		this.budgetDisc = budgetDisc;
 	}
 }

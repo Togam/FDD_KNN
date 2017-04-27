@@ -11,7 +11,7 @@ import model.Movie;
 import model.Result;
 import service.DistanceComparator;
 import service.KNNalgo;
-import dao.CsvMovieDaoRentab;
+import dao.CsvMovieDaoRentabReg;
 
 /**
  * @author six lalande descamps
@@ -30,7 +30,7 @@ class KNNRentabRegression {
 		List<Result> resultList = new ArrayList<Result>();
 
 		// add city data to cityList
-		CsvMovieDaoRentab daoRentab = new CsvMovieDaoRentab(
+		CsvMovieDaoRentabReg daoRentab = new CsvMovieDaoRentabReg(
 				new File(
 						"/home/m1miage/six/Documents/FDD/projet/predictionRentabilite.csv"));
 		movieList = daoRentab.findAllMovies();
