@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import service.ParseLigne;
+
 import model.Movie;
 import csv_access.CsvFile;
 
@@ -64,15 +66,10 @@ public class CsvMovieDaoImdbClassif implements MovieDaoInterface {
 	private Movie tabToMovieImdbs(String[] tab) {
 		Movie movie = new Movie();
 
-		movie.setDuration(Long.parseLong(tab[0]));
-		movie.setDirectorFbLikes(Long.parseLong(tab[1]));
-		movie.setActor1FbLikes(Long.parseLong(tab[2]));
-		movie.setCastFbLikes(Long.parseLong(tab[3]));
-		movie.setImdbDiscretise(tab[4]);
+		long[] tabparsee = ParseLigne.parseLigneImdb(tab);
 
-		long[] tabfinal = { movie.getDuration(), movie.getDirectorFbLikes(),
-				movie.getActor1FbLikes(), movie.getCastFbLikes() };
-		movie.setTab(tabfinal);
+		movie.setRatioRentabDisc(tab[4]);
+		movie.setTab(tabparsee);
 
 		return movie;
 	}
